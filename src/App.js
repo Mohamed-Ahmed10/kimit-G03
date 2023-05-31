@@ -1,20 +1,14 @@
 import "./App.scss";
-import FAQ from "./components/FAQ";
-import Product from "./components/Product";
-import HomePage from "./views/Homepage";
-import Alert from 'react-bootstrap/Alert';
-import ProductsView from "./views/ProductsView";
-import Loop from "./components/Loop";
+import RespondingToEvents from "./components/RespondingToEvents";
+import RespondingToEventsClass from "./components/RespondingToEventsClass";
+
 
 function App() {
-    var myCourse = "React course";
     return (
-        <div className="App test">
-            {/* <HomePage />
-            <FAQ /> */}
-
-            {/* <ProductsView /> */}
-            <Loop />
+        <div className="text-center">
+            <RespondingToEventsClass />
+            <hr />
+            <RespondingToEvents />
         </div>
     );
 }
