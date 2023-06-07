@@ -1,16 +1,20 @@
 import "./App.scss";
-import RespondingToEvents from "./components/RespondingToEvents";
-import RespondingToEventsClass from "./components/RespondingToEventsClass";
-
+import Profile from "./components/Test";
+import TodoClass from "./components/TodoClass";
+import TodoFn from "./components/TodoFn";
 
 function App() {
     return (
         <div className="text-center">
-            <RespondingToEventsClass />
-            <hr />
-            <RespondingToEvents />
+            {/* <TodoClass /> */}
+
+            <TodoFn />
+
         </div>
     );
 }
 
 export default App;
+
+
+//props
