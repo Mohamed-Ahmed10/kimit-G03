@@ -1,20 +1,21 @@
 import "./App.scss";
-import Profile from "./components/Test";
-import TodoClass from "./components/TodoClass";
-import TodoFn from "./components/TodoFn";
+import CourseView from "./components/CourseView";
 
 function App() {
+    var courses = [
+        {
+            courseName: "HTML",
+            desc: "hyper"
+        }
+    ]
     return (
         <div className="text-center">
-            {/* <TodoClass /> */}
-
-            <TodoFn />
-
+            <CourseView course_name="HTML" course_desc="HyperText markdfgnkpojytmfpov" />
+            <CourseView course_name="JS" course_desc="This is programming language" />
+            <CourseView course_name="React" course_desc="This is SPA" />
         </div>
     );
 }
 
 export default App;
 
-
-//props
