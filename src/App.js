@@ -1,21 +1,24 @@
 import "./App.scss";
-import CourseView from "./components/CourseView";
-
+import Home from "./views/Home";
+import About from "./views/About";
+import Contact from "./views/Contact";
+import Nav from "./components/Nav";
+import { Route, Routes } from "react-router-dom";
+import Persons from "./components/persons";
+import RecipeList from "./components/Recipe";
 function App() {
-    var courses = [
-        {
-            courseName: "HTML",
-            desc: "hyper"
-        }
-    ]
     return (
         <div className="text-center">
-            <CourseView course_name="HTML" course_desc="HyperText markdfgnkpojytmfpov" />
-            <CourseView course_name="JS" course_desc="This is programming language" />
-            <CourseView course_name="React" course_desc="This is SPA" />
+            <Nav />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={ <Contact />} />
+                <Route path="/persons" element={ <Persons />} />
+                <Route path="/recipe" element={ <RecipeList />} />
+            </Routes>
         </div>
     );
 }
 
 export default App;
-
