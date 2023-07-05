@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import { Route, Routes } from "react-router-dom";
 import Persons from "./components/persons";
 import RecipeList from "./components/Recipe";
+import Products from "./components/Products";
 function App() {
     return (
         <div className="text-center">
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/contact" element={ <Contact />} />
                 <Route path="/persons" element={ <Persons />} />
                 <Route path="/recipe" element={ <RecipeList />} />
+                <Route path="/products" element={<Products /> } />
             </Routes>
         </div>
     );
