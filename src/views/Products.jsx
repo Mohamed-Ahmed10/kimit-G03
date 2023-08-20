@@ -1,30 +1,33 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SiteNav from "../layout/SiteNav";
 import { Container, Row, Col } from "react-bootstrap";
 import ViewProducts from "../components/ViewProducts";
 import FilterMenu from "../components/FilterMenu";
 import Spinner from 'react-bootstrap/Spinner';
-
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function Products() {
+    const { t } = useTranslation();
+    const theme = useContext(ThemeContext);
 
-
-    const baseUrl = "https://dummyjson.com/products";
+    const baseUrl = "http://localhost:1111";
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("All")
 
     function getProducts() {
-        fetch(baseUrl).then(json => json.json()).then(res => setProducts(res.products))
+        fetch(`http://localhost:1111/products`).then(json => json.json()).then(res => setProducts(res))
     }
 
     function getCategories() {
-        fetch(`${baseUrl}/categories`).then(json => json.json()).then(res => setCategories(res))
+        fetch(`http://localhost:1111/categories`).then(json => json.json()).then(res => setCategories(res))
     }
 
     let filterProducts = (category) => {
-        fetch(`${baseUrl}/category/${category}`).then(json => json.json()).then(res => setProducts(res.products))
+        fetch(`${baseUrl}/category/${category}`).then(json => json.json()).then(res => setProducts(res))
         setSelectedCategory(category)
     }
 
@@ -33,12 +36,13 @@ export default function Products() {
         getCategories();
     }, [])
 
+
     return (
-        <div className="text-center">
+        <div className={`text-center ${i18n.language === "ar" && "rtl"} ${theme.theme === "dark" && "dark"}`}>
             <SiteNav />
-            <div className="m-4">
-                <h2>Products</h2>
-                <h3>Number of products : {products.length}</h3>
+            <div className="m-4 p-4">
+                <h2>{t('products')}</h2>
+                <h3>{t('number_of_products')} : {products.length}</h3>
                 <Container>
                     <Row className="d-flex justify-content-center">
                         {

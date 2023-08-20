@@ -4,7 +4,16 @@
     box-sizing: border-box;
 }
 
+.rtl {
+    direction: rtl
+}
+
 .dark {
     background-color: #4e4e4e;
     color: #FFF
+}
+
+nav
+{
+    z-index: 9;
 }

@@ -12,7 +12,30 @@ import Products from './views/Products';
 import Cart from './views/Cart';
 import Error from './views/Error';
 import ProductDetails from './views/ProductDetails';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import EnglishTranslation from "./locale/en.json";
+import ArabicTranslation from "./locale/ar.json";
+import "./App.scss"
+import ThemeProvider from './context/ThemeContext';
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: EnglishTranslation,
+      },
+      ar: {
+        translation: ArabicTranslation,
+      }
+    },
+    lng: "en",
+    fallbackLng: "en",
 
+    interpolation: {
+      escapeValue: false
+    }
+  });
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +50,8 @@ const router = createBrowserRouter([
     element: <Products />
   },
   {
-    path:"/products/:productId",
-    element:<ProductDetails />
+    path: "/products/:productId",
+    element: <ProductDetails />
   },
   {
     path: "/cart",
@@ -43,6 +66,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
