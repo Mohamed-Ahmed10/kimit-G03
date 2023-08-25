@@ -18,6 +18,7 @@ import EnglishTranslation from "./locale/en.json";
 import ArabicTranslation from "./locale/ar.json";
 import "./App.scss"
 import ThemeProvider from './context/ThemeContext';
+import EditProduct from './views/EditProduct';
 i18n
   .use(initReactI18next)
   .init({
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/products/:productId",
     element: <ProductDetails />
+  },
+  {
+    path: "/products/edit/:productId",
+    element: <EditProduct />
   },
   {
     path: "/cart",

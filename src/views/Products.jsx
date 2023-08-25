@@ -40,6 +40,7 @@ export default function Products() {
     return (
         <div className={`text-center ${i18n.language === "ar" && "rtl"} ${theme.theme === "dark" && "dark"}`}>
             <SiteNav />
+            
             <div className="m-4 p-4">
                 <h2>{t('products')}</h2>
                 <h3>{t('number_of_products')} : {products.length}</h3>

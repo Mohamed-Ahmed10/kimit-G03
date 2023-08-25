@@ -16,9 +16,11 @@ export default function ViewProducts({ products }) {
                                 <Card.Text>{product.price} $</Card.Text>
                                 <small className="text-muted">{product.brand}</small>
                             </Card.Body>
-                            <Card.Footer>
+                            <Card.Footer className ="d-flex flex-column gap-2">
                                 <Link to={`./${product.id}`} className="btn btn-primary mx-2">View more</Link>
                                 <Button variant="success" className="mx-2">Add to cart</Button>
+                                <Link to={`./edit/${product.id}`} className="btn btn-info mx-2">Edit</Link>
+                                <Button variant="danger" className="mx-2">Delete</Button>
                             </Card.Footer>
                         </Card>
                     </Col>
