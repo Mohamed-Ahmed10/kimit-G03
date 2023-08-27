@@ -7,6 +7,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { ThemeContext } from "../context/ThemeContext";
+import Button from 'react-bootstrap/Button';
 
 export default function Products() {
     const { t } = useTranslation();
@@ -27,7 +28,7 @@ export default function Products() {
     }
 
     let filterProducts = (category) => {
-        fetch(`${baseUrl}/category/${category}`).then(json => json.json()).then(res => setProducts(res))
+        fetch(`${baseUrl}/categories/${category}`).then(json => json.json()).then(res => setProducts(res))
         setSelectedCategory(category)
     }
 
@@ -40,7 +41,7 @@ export default function Products() {
     return (
         <div className={`text-center ${i18n.language === "ar" && "rtl"} ${theme.theme === "dark" && "dark"}`}>
             <SiteNav />
-            
+
             <div className="m-4 p-4">
                 <h2>{t('products')}</h2>
                 <h3>{t('number_of_products')} : {products.length}</h3>
@@ -57,7 +58,7 @@ export default function Products() {
                                             getProducts={getProducts}
                                             filterProducts={filterProducts} />
                                     </Col>
-                                    <ViewProducts products={products} />
+                                    <ViewProducts products={products} getProducts={getProducts}/>
                                 </>
                                 :
                                 <Spinner animation="border" role="status" className="m-4">

@@ -31,6 +31,7 @@ function SiteNav() {
                         <NavLink className='nav-link' to="/todo">{t('todo')}</NavLink>
                         <NavLink className='nav-link' to="/products">{t('products')}</NavLink>
                         <NavLink className='nav-link' to="/cart">{t('cart')}</NavLink>
+                        <NavLink className='nav-link' to="/add">{t('add_new')}</NavLink>
                         <FontAwesomeIcon className="fa-2x m-1" icon={faLanguage} onClick={changeLAnguage} />
                         <FontAwesomeIcon className="fa-2x m-1" icon={faSun} onClick={theme.toggleTheme} />
                     </Nav>

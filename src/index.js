@@ -19,6 +19,7 @@ import ArabicTranslation from "./locale/ar.json";
 import "./App.scss"
 import ThemeProvider from './context/ThemeContext';
 import EditProduct from './views/EditProduct';
+import AddNewProduct from './views/AddNewProduct';
 i18n
   .use(initReactI18next)
   .init({
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />
+  },
+  {
+    path: "/add",
+    element: <AddNewProduct />
   },
   {
     path: "/*",

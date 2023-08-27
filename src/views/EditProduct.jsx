@@ -25,17 +25,12 @@ export default function EditProduct() {
                 setDescription(ev.target.value);
     };
 
-    async function postData(url = `http://localhost:1111/products/${params.productId}`) {
-        const response = await fetch(url, {
+    async function postData() {
+        const response = await fetch(`http://localhost:1111/products/${params.productId}`, {
             method: "PUT",
-            mode: "cors",
-            cache: "no-cache",
-            credentials: "same-origin",
             headers: {
                 "Content-Type": "application/json"
             },
-            redirect: "follow",
-            referrerPolicy: "no-referrer",
             body: JSON.stringify({
                 ...product,
                 title,
@@ -45,6 +40,8 @@ export default function EditProduct() {
         });
         return response.json();
     }
+
+    
     async function postDataInCategory(url = `http://localhost:1111/${(product.category).split(" ").join("_")}/${params.productId}`) {
         const response = await fetch(url, {
             method: "PUT",
@@ -66,7 +63,7 @@ export default function EditProduct() {
         return response.json();
     }
 
-    useEffect(() => {
+    let getProduct = () => {
         fetch(`http://localhost:1111/products/${params.productId}`)
             .then(res => res.json())
             .then(product => {
@@ -75,6 +72,10 @@ export default function EditProduct() {
                 setPrice(product.price)
                 setDescription(product.description)
             })
+    }
+
+    useEffect(() => {
+        getProduct()
     }, [params.productId])
 
     let handleEditProduct = (ev) => {
@@ -133,7 +134,6 @@ export default function EditProduct() {
                     </Button>
                 </Form>
             </Container>
-
         </div>
     )
 }
