@@ -20,6 +20,10 @@ import "./App.scss"
 import ThemeProvider from './context/ThemeContext';
 import EditProduct from './views/EditProduct';
 import AddNewProduct from './views/AddNewProduct';
+import ReduxExplain from './views/ReduxExplain';
+import { Provider } from 'react-redux';
+import store from "./redux/store";
+
 i18n
   .use(initReactI18next)
   .init({
@@ -68,6 +72,10 @@ const router = createBrowserRouter([
     element: <AddNewProduct />
   },
   {
+    path: "/redux",
+    element: <ReduxExplain />
+  },
+  {
     path: "/*",
     element: <Error />
   },
@@ -77,7 +85,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );

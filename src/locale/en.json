@@ -4,5 +4,6 @@
     "home": "Home",
     "todo": "Todo",
     "cart": "Cart",
-    "add_new" : "Add new"
+    "add_new": "Add new",
+    "redux": "Redux"
 }
