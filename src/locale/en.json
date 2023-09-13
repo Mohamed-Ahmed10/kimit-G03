@@ -5,5 +5,7 @@
     "todo": "Todo",
     "cart": "Cart",
     "add_new": "Add new",
-    "redux": "Redux"
+    "redux": "Redux",
+    "memo": "memo",
+    "callBack":"callBack"
 }

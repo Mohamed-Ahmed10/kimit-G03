@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLanguage, faSun } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../context/ThemeContext';
@@ -16,9 +16,6 @@ function SiteNav() {
         i18n.language === "en" ? i18n.changeLanguage('ar') : i18n.changeLanguage('en');
         localStorage.setItem("language", i18n.language)
     }
-    useEffect(() => {
-        i18n.changeLanguage(localStorage.getItem("language"))
-    }, [])
     return (
         <Navbar expand="md" className="bg-secondary position-fixed top-0 w-100">
             <Container>
@@ -33,6 +30,8 @@ function SiteNav() {
                         <NavLink className='nav-link' to="/cart">{t('cart')}</NavLink>
                         <NavLink className='nav-link' to="/add">{t('add_new')}</NavLink>
                         <NavLink className='nav-link' to="/redux">{t('redux')}</NavLink>
+                        <NavLink className='nav-link' to="/memo">{t('memo')}</NavLink>
+                        <NavLink className='nav-link' to="/callBack">{t('callBack')}</NavLink>
                         <FontAwesomeIcon className="fa-2x m-1" icon={faLanguage} onClick={changeLAnguage} />
                         <FontAwesomeIcon className="fa-2x m-1" icon={faSun} onClick={theme.toggleTheme} />
                     </Nav>

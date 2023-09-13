@@ -23,6 +23,8 @@ import AddNewProduct from './views/AddNewProduct';
 import ReduxExplain from './views/ReduxExplain';
 import { Provider } from 'react-redux';
 import store from "./redux/store";
+import Memo from './views/Memo';
+import CallbackExplain from './views/Callback_explain';
 
 i18n
   .use(initReactI18next)
@@ -35,7 +37,7 @@ i18n
         translation: ArabicTranslation,
       }
     },
-    lng: "en",
+    lng: localStorage.getItem("language"),
     fallbackLng: "en",
 
     interpolation: {
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
   {
     path: "/redux",
     element: <ReduxExplain />
+  },
+  {
+    path: "/memo",
+    element: <Memo />
+  },
+  {
+    path: "/callBack",
+    element: <CallbackExplain />
   },
   {
     path: "/*",
